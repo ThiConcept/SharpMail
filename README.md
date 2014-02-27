@@ -18,6 +18,6 @@ All settings are saved by email.
 
 Authors
 -------
-Thibaut Caraboeuf
-For the "color picker" it's from the example of MSDN
+Thibaut Caraboeuf  
+For the "color picker" it's from the example of MSDN  
 For the "protect data" the code is not from me, but I lost the name of the source
