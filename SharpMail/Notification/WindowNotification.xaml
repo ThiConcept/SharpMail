@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         mc:Ignorable="d" d:DesignHeight="200" d:DesignWidth="400"
         AllowsTransparency="True" WindowStyle="None" 
-        Background="Transparent" Width="250" Height="100" 
+        Background="Transparent" Width="250" Height="130" 
         Closing="Window_Closing" ShowInTaskbar="False" Topmost="True">
     <!-- Please, be careful, don't change the size ! -->
     <Window.Triggers>

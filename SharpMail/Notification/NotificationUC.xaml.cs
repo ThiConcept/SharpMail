@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Markup;
+using System.Threading;
 
 namespace Tibo.fr.SharpMail.Notification
 {
@@ -21,6 +23,7 @@ namespace Tibo.fr.SharpMail.Notification
     {
         public NotificationUC()
         {
+            Language = XmlLanguage.GetLanguage(Thread.CurrentThread.CurrentCulture.Name);
             InitializeComponent();
         }
     }

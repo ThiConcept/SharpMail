@@ -10,6 +10,7 @@ using System.ComponentModel;
 using Tibo.fr.SharpMail.Notification;
 using System.Windows.Threading;
 using Tibo.fr.SharpMail.Util;
+using System.Globalization;
 
 namespace Tibo.fr.SharpMail.Gmail
 {
@@ -113,6 +114,11 @@ namespace Tibo.fr.SharpMail.Gmail
                     if (pos == -1)
                     {
                         mail.Title = entry["title"].InnerText.Trim();
+                        DateTime date;
+                        if (DateTime.TryParse(entry["issued"].InnerText.Trim(), out date))
+                            mail.Date = date;
+                        else
+                            mail.Date = DateTime.Now;
                         mail.Summary = entry["summary"].InnerText.Trim();
                         mail.Link = entry["link"].Attributes["href"].InnerText.Trim();
                         mail.Author = entry["author"]["email"].InnerText.Trim();
