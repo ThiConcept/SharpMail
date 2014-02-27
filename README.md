@@ -6,7 +6,7 @@ So I create a new gmail notifier client in C# => SharpMail
 
 Installation
 ------------
-You can get the window executable file (and its configuration file) from the release part, and just run.
+You can get the window executable file (and its configuration file) from the release part (bin/release), and just run.
 
 Config
 ------
