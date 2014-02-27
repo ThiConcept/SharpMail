@@ -11,6 +11,8 @@ namespace Tibo.fr.SharpMail.Gmail
         public string Summary { get; set; }
         public string Link { get; set; }
         public string Author { get; set; }
+        public string ID { get; set; }
+        public int Pos { get; set; }
 
         public override string ToString()
         {
@@ -22,14 +24,14 @@ namespace Tibo.fr.SharpMail.Gmail
             GmailMail other = obj as GmailMail;
             if (other != null)
             {
-                return String.Equals(this.ToString(), other.ToString());
+                return String.Equals(this.ID, other.ID);
             }
             return false;
         }
 
         public override int GetHashCode()
         {
-            return ToString().GetHashCode();
+            return ID.GetHashCode();
         }
     }
 }

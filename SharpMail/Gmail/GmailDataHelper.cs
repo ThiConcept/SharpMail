@@ -97,23 +97,40 @@ namespace Tibo.fr.SharpMail.Gmail
             lock (Datas)
             { 
                 List<GmailMail> gmails = new List<GmailMail>();
+                List<GmailMail> mailsToNotify = new List<GmailMail>();
+                int currentPos = 0;
                 foreach (XmlNode entry in entries)
                 {
+                    //Increment for all mail in the list
+                    currentPos++;
+                    //Create a new instance of a mail
                     var mail = new GmailMail();
-                    mail.Title = entry["title"].InnerText.Trim();
-                    mail.Summary = entry["summary"].InnerText.Trim();
-                    mail.Link = entry["link"].Attributes["href"].InnerText.Trim();
-                    mail.Author = entry["author"]["email"].InnerText.Trim();
-
-                    if (!Datas.Mails.Contains(mail))
+                    //Get the ID
+                    mail.ID = entry["id"].InnerText.Trim();
+                    //check if the mail is already known
+                    int pos = Datas.Mails.IndexOf(mail);
+                    //If no, create a new, else, take old data
+                    if (pos == -1)
                     {
-                        NotifyMail(mail);
+                        mail.Title = entry["title"].InnerText.Trim();
+                        mail.Summary = entry["summary"].InnerText.Trim();
+                        mail.Link = entry["link"].Attributes["href"].InnerText.Trim();
+                        mail.Author = entry["author"]["email"].InnerText.Trim();
+                        mailsToNotify.Add(mail);
                     }
-                    gmails.Insert(0, mail);
+                    else
+                    {
+                        mail = Datas.Mails[pos];
+                    }
+                    //Set the current pos for this mail
+                    mail.Pos = currentPos;
+                    gmails.Add(mail);
                 }
                 Datas.Mails.Clear();
                 foreach (GmailMail mail in gmails)
-                    Datas.Mails.Insert(0, mail);
+                    Datas.Mails.Add(mail);
+                foreach(GmailMail mail in mailsToNotify)
+                    NotifyMail(mail);
             }
 		}
 

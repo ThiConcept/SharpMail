@@ -16,15 +16,15 @@ namespace Tibo.fr.SharpMail.Notification
 
         //Temp to wait to be sure , you can show all box
         private Settings _settings;
-        private GmailData _data;
+        private GmailData _datas;
         private System.Timers.Timer _timer;
         private bool _needReTime = false;
 
-        public WindowNotificationFactory(Settings settings, GmailData data)
+        public WindowNotificationFactory(Settings settings, GmailData datas)
         {
             _settings = settings;
             _settings.PropertyChanged += _settings_PropertyChanged;
-            _data = data;
+            _datas = datas;
             _timer = new System.Timers.Timer();
             _timer.Interval = _settings.WaitSeconds * 1000;
             _timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
@@ -84,7 +84,7 @@ namespace Tibo.fr.SharpMail.Notification
 
             //Create notif
             NotificationUC uc = new NotificationUC();
-            NotificationUCVM vm = new NotificationUCVM(item, _settings.FGColor, _settings.BGColor, _data.Mails.IndexOf(item) + 1, _data.FullCount);
+            NotificationUCVM vm = new NotificationUCVM(item, _settings.FGColor, _settings.BGColor, item.Pos, _datas.FullCount);
             uc.DataContext = vm;
             WindowNotification w = new WindowNotification(uc, _settings.WaitSeconds * 1000);
 
