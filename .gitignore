@@ -1,7 +1,11 @@
 SharpMail.sln.docstates.suo
 SharpMail.suo
-*.suo
+SharpMail/.docstates.suo
 SharpMail/Properties/Resources.Designer.cs
 SharpMail/Properties/Resources.resx
 SharpMail/Properties/Settings.Designer.cs
 SharpMail/Properties/Settings.settings
+SharpMail/obj*
+SharpMail/bin/Debug*
+SharpMail/bin/Release/*.pdb
+SharpMail/bin/Release/*.vshost.*
