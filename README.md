@@ -6,11 +6,11 @@ So I create a new gmail notifier client in C# => SharpMail
 
 Installation
 ------------
-You can get the window executable file (and its configuration file) from the release part (bin/release), and just run.
+You can get the window executable file from the release part, and just run.
 
 Config
 ------
-When the app is launch, on the tray Icon:  
+When the app is launch, you must enter your mail and your password, and after on the tray Icon:  
 On a left click, you can access to your box, force the refresh, show again all not read mail, and exit the app  
 On a right click, you have the settings, and the about.  
 
